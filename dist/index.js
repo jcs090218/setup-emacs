@@ -5407,15 +5407,20 @@ module.exports = v4;
 /***/ }),
 
 /***/ 533:
-/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.run = void 0;
 // Based on https://github.com/cachix/install-nix-action
 const child_process_1 = __nccwpck_require__(81);
+const fs_1 = __importDefault(__nccwpck_require__(147));
 function run(emacsCIVersion) {
+    fs_1.default.chmodSync(`${__dirname}/install-nix.sh`, 0o755);
     (0, child_process_1.execFileSync)(`${__dirname}/install-nix.sh`, [emacsCIVersion], { stdio: 'inherit' });
 }
 exports.run = run;
