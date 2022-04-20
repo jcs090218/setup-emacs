@@ -5463,13 +5463,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
-const exec = __importStar(__nccwpck_require__(514));
 const installNix = __importStar(__nccwpck_require__(533));
 const windows = __importStar(__nccwpck_require__(839));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            core.startGroup("Installing Emacs");
             switch (process.platform) {
                 case "win32":
                     {
@@ -5484,9 +5482,6 @@ function run() {
                     }
                     break;
             }
-            core.endGroup();
-            // show Emacs version
-            yield exec.exec('emacs', ['--version']);
         }
         catch (error) {
             let errorMsg = "Failed to do something exceptional";
@@ -5541,6 +5536,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.run = void 0;
 const core = __importStar(__nccwpck_require__(186));
+const exec = __importStar(__nccwpck_require__(514));
 const tc = __importStar(__nccwpck_require__(784));
 const fs_1 = __importDefault(__nccwpck_require__(147));
 function run() {
@@ -5554,6 +5550,7 @@ function run() {
             const dot_ver = emacs_major_ver + "." + emacs_minor_ver; // 27.1
             const dash_ver = emacs_major_ver + "-" + emacs_minor_ver; // 27-1
             const emacs_dot_var = "emacs-" + dot_ver; // emacs-27.1
+            core.startGroup("Installing Emacs");
             let ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/emacs-" + emacs_major_ver + "/";
             let zipPath = ftpUrl + emacs_dot_var;
             if (version == "snapshot") {
@@ -5616,6 +5613,9 @@ function run() {
             }
             core.exportVariable("PATH", `${PATH};${emacsRoot}`);
             core.exportVariable("PATH", `${PATH};${emacsBin}`);
+            core.endGroup();
+            // show Emacs version
+            yield exec.exec('emacs', ['--version']);
         }
         catch (error) {
             let errorMsg = "Failed to do something exceptional";
