@@ -1,4 +1,5 @@
 import * as core from "@actions/core";
+import * as exec from "@actions/exec";
 import * as installNix from "./installNix";
 import * as windows from "./windows";
 
