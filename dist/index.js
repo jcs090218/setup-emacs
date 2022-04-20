@@ -5464,17 +5464,16 @@ function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             switch (process.platform) {
-                case "linux":
-                case "darwin":
+                case "win32":
+                    {
+                        yield windows.run();
+                    }
+                    break;
+                default:
                     {
                         const version = core.getInput("version");
                         const emacsCIVersion = "emacs-" + version.replace(".", "-");
                         yield installNix.run(emacsCIVersion);
-                    }
-                    break;
-                case "win32":
-                    {
-                        yield windows.run();
                     }
                     break;
             }
