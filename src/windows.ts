@@ -4,7 +4,7 @@ import * as io from "@actions/io";
 import * as tc from "@actions/tool-cache";
 import fs from 'fs'
 
-export function run() {
+export async function run() {
     try {
         const PATH = process.env.PATH;
 
@@ -89,6 +89,10 @@ export function run() {
         // show Emacs version
         await exec.exec('emacs', ['--version']);
     } catch (error) {
-        core.setFailed(error.message);
+        let errorMsg = "Failed to do something exceptional";
+        if (error instanceof Error) {
+            errorMsg = error.message;
+        }
+        core.setFailed(errorMsg);
     }
 }

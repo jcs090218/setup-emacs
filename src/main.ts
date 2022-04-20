@@ -17,7 +17,11 @@ async function run() {
         }
 
     } catch (error) {
-        core.setFailed(error.message);
+        let errorMsg = "Failed to do something exceptional";
+        if (error instanceof Error) {
+            errorMsg = error.message;
+        }
+        core.setFailed(errorMsg);
     }
 }
 
