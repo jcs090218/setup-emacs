@@ -8,6 +8,13 @@
 [![Build](https://github.com/jcs090218/setup-emacs/actions/workflows/build.yml/badge.svg)](https://github.com/jcs090218/setup-emacs/actions/workflows/build.yml)
 [![dependencies Status](https://status.david-dm.org/gh/jcs090218/setup-emacs.svg)](https://david-dm.org/jcs090218/setup-emacs)
 
+This is a simple action that merges these two actions 🎉
+
+- [purcell/setup-emacs](https://github.com/purcell/setup-emacs)
+- [jcs090218/setup-emacs-windows](https://github.com/jcs090218/setup-emacs-windows)
+
+This allow us to use Emacs across all operating systems!
+
 ## Usage
 
 ```yaml
