@@ -1,4 +1,4 @@
-name: 'Set up Emacs'
+name: 'Setup Emacs'
 description: 'Install a specific Emacs version for use in your workflow.'
 author: 'Jen-Chieh Shen'
 inputs:
