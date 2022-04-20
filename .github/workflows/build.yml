@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["CI"]
     types:
-      - success
+      - completed
   pull_request:
   push:
     paths-ignore:
