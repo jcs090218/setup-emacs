@@ -1,4 +1,5 @@
 import * as core from '@actions/core';
+import * as exec from "@actions/exec";
 import * as io from "@actions/io";
 import * as tc from "@actions/tool-cache";
 import fs from 'fs';
@@ -15,6 +16,7 @@ export async function run() {
         const dash_ver = emacs_major_ver + "-" + emacs_minor_ver;  // 27-1
         const emacs_dot_var = "emacs-" + dot_ver;  // emacs-27.1
 
+        core.startGroup("Installing Emacs");
         let ftpUrl = "https://ftp.gnu.org/gnu/emacs/windows/emacs-" + emacs_major_ver + "/";
         let zipPath = ftpUrl + emacs_dot_var;
 
@@ -81,6 +83,11 @@ export async function run() {
 
         core.exportVariable("PATH", `${PATH};${emacsRoot}`);
         core.exportVariable("PATH", `${PATH};${emacsBin}`);
+
+        core.endGroup();
+
+        // show Emacs version
+        await exec.exec('emacs', ['--version']);
     } catch (error) {
         let errorMsg = "Failed to do something exceptional";
         if (error instanceof Error) {

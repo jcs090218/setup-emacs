@@ -1,12 +1,9 @@
 import * as core from "@actions/core";
-import * as exec from "@actions/exec";
 import * as installNix from "./installNix";
 import * as windows from "./windows";
 
 async function run() {
     try {
-        core.startGroup("Installing Emacs");
-
         switch (process.platform) {
             case "win32": {
                 await windows.run();
@@ -17,11 +14,6 @@ async function run() {
                 await installNix.run(emacsCIVersion);
             } break;
         }
-
-        core.endGroup();
-
-        // show Emacs version
-        await exec.exec('emacs', ['--version']);
     } catch (error) {
         let errorMsg = "Failed to do something exceptional";
         if (error instanceof Error) {
