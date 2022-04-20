@@ -16,7 +16,7 @@ This is a simple action that merges these two actions 🎉
 This allow us to use Emacs across all operating systems!
 
 ## Usage
-
+c
 ```yaml
 uses: jcs090218/setup-emacs@master
 with:
