@@ -1,6 +1,10 @@
 name: 'Build'
 
 on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - success
   pull_request:
   push:
     paths-ignore:
