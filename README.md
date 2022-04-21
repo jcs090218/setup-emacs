@@ -15,12 +15,45 @@ This is a simple action that merges these two actions 🎉
 
 This allow us to use Emacs across all operating systems!
 
-## Usage
+## 🔨 Usage
 
 ```yaml
 uses: jcs090218/setup-emacs@master
 with:
   version: 24.5
+```
+
+## What does it solve?
+
+You use to have this,
+
+```yaml
+    steps:
+    - uses: actions/checkout@v2
+
+    # Install Emacs on Linux/macOS
+    - uses: purcell/setup-emacs@master
+      if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
+      with:
+        version: ${{ matrix.emacs-version }}
+
+    # Install Emacs on Windows
+    - uses: jcs090218/setup-emacs-windows@master
+      if: matrix.os == 'windows-latest'
+      with:
+        version: ${{ matrix.emacs-version }}
+```
+
+now you can replace all by this:
+
+```yaml
+    steps:
+    - uses: actions/checkout@v2
+
+    # Install Emacs on all platforms
+    - uses: jcs090218/setup-emacs@master
+      with:
+        version: ${{ matrix.emacs-version }}
 ```
 
 ## License
