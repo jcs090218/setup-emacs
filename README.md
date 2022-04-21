@@ -23,7 +23,7 @@ with:
   version: 24.5
 ```
 
-## What does it solve?
+## ❓ What does it solve?
 
 You use to have this,
 
