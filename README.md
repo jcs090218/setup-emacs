@@ -25,36 +25,9 @@ with:
 
 ## ❓ What does it solve?
 
-You use to have this,
+Now you can do this,
 
-```yaml
-    steps:
-    - uses: actions/checkout@v2
-
-    # Install Emacs on Linux/macOS
-    - uses: purcell/setup-emacs@master
-      if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
-      with:
-        version: ${{ matrix.emacs-version }}
-
-    # Install Emacs on Windows
-    - uses: jcs090218/setup-emacs-windows@master
-      if: matrix.os == 'windows-latest'
-      with:
-        version: ${{ matrix.emacs-version }}
-```
-
-now you can replace all by this:
-
-```yaml
-    steps:
-    - uses: actions/checkout@v2
-
-    # Install Emacs on all platforms
-    - uses: jcs090218/setup-emacs@master
-      with:
-        version: ${{ matrix.emacs-version }}
-```
+<img alt="diff" src="./etc/diff.png" width="60%"/>
 
 ## License
 
