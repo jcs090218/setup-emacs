@@ -53,7 +53,7 @@ Now you only need this,
           version: ${{ matrix.emacs-version }}
 ```
 
-#### Diff
+### ❓ Diff View
 
 In `diff` view,
 
