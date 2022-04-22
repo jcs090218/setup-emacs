@@ -25,9 +25,53 @@ with:
 
 ## ❓ What does it solve?
 
-Now you can do this,
+You use to have to do this to install Emacs on `Unix` and `Windows`.
 
-<img alt="diff" src="./etc/diff.png" width="60%"/>
+```yml
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: purcell/setup-emacs@master
+        if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
+        with:
+          version: ${{ matrix.emacs-version }}
+
+      - uses: jcs090218/setup-emacs-windows@master
+        if: matrix.os == 'windows-latest'
+        with:
+          version: ${{ matrix.emacs-version }}
+```
+
+Now you only need this,
+
+```yml
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: jcs090218/setup-emacs@master
+        with:
+          version: ${{ matrix.emacs-version }}
+```
+
+#### Diff
+
+In `diff` view,
+
+```diff
+     steps:
+       - uses: actions/checkout@v2
+
+-      - uses: purcell/setup-emacs@master
+-        if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
+-        with:
+-          version: ${{ matrix.emacs-version }}
+
+-      - uses: jcs090218/setup-emacs-windows@master
+-        if: matrix.os == 'windows-latest'
++      - uses: jcs090218/setup-emacs@master
+         with:
+           version: ${{ matrix.emacs-version }}
+```
 
 ## License
 
