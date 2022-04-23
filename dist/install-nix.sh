@@ -73,18 +73,12 @@ if [[ $OSTYPE =~ darwin ]]; then
   sudo launchctl setenv NIX_SSL_CERT_FILE "$cert_file"
 fi
 
-if [[ $INPUT_INSTALL_OPTIONS != "" ]]; then
-  IFS=' ' read -r -a extra_installer_options <<< "$INPUT_INSTALL_OPTIONS"
-  installer_options=("${extra_installer_options[@]}" "${installer_options[@]}")
-fi
-
 # Set paths
 echo "/nix/var/nix/profiles/default/bin" >> "$GITHUB_PATH"
 echo "/nix/var/nix/profiles/per-user/$USER/profile/bin" >> "$GITHUB_PATH"
 
-if [[ $INPUT_NIX_PATH != "" ]]; then
-  echo "NIX_PATH=${INPUT_NIX_PATH}" >> "$GITHUB_ENV"
-fi
+export NIX_PATH=nixpkgs=channel:nixpkgs-unstable
+echo "NIX_PATH=${NIX_PATH}" >> $GITHUB_ENV
 
 ## Emacs installation
 
