@@ -86,11 +86,11 @@ PATH="/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/per-user/$USER/pro
 
 ## cachix installation
 nix-env -iA cachix -f https://cachix.org/api/v1/install
-cat /etc/nix/nix.conf
-cachix use cachix
+PATH="/nix/store/*cachix*/bin/cachix:$PATH"
+
+nix profile install github:cachix/cachix/latest
 
 ## Emacs installation
-nix-env --quiet -j8 -iA cachix -f https://cachix.org/api/v1/install
 cachix use emacs-ci
 
 nix-env -iA "$emacs_ci_version" -f "https://github.com/purcell/nix-emacs-ci/archive/master.tar.gz"
