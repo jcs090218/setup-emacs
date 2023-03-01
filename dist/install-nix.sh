@@ -85,9 +85,6 @@ echo "NIX_PATH=${NIX_PATH}" >> $GITHUB_ENV
 PATH="/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/per-user/$USER/profile/bin:$PATH"
 
 ## cachix installation
-nix-env -iA cachix -f https://cachix.org/api/v1/install
-PATH="/nix/store/*cachix*/bin/cachix:$PATH"
-
 nix profile install github:cachix/cachix/latest --extra-experimental-features nix-command --extra-experimental-features flakes
 
 ## Emacs installation
