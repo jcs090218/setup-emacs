@@ -27,6 +27,13 @@ add_config "max-jobs = auto"
 # Allow binary caches for user
 add_config "trusted-users = root ${USER:-}"
 
+# Add github access token
+if [[ -n "${INPUT_GITHUB_ACCESS_TOKEN:-}" ]]; then
+    add_config "access-tokens = github.com=$INPUT_GITHUB_ACCESS_TOKEN"
+elif [[ -n "${GITHUB_TOKEN:-}" ]]; then
+    add_config "access-tokens = github.com=$GITHUB_TOKEN"
+fi
+
 # Nix installer flags
 installer_options=(
   --no-channel-add
@@ -83,7 +90,7 @@ echo "NIX_PATH=${NIX_PATH}" >> $GITHUB_ENV
 
 ## Emacs installation
 
-PATH="/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/per-user/$USER/profile/bin:$PATH"
+PATH="$HOME/.nix-profile/bin:/nix/var/nix/profiles/default/bin:$PATH"
 nix-env --quiet -j8 -iA cachix -f https://cachix.org/api/v1/install
 cachix use emacs-ci
 
