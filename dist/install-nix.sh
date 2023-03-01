@@ -81,9 +81,15 @@ echo "$HOME/.nix-profile/bin" >> "$GITHUB_PATH"
 export NIX_PATH=nixpkgs=channel:nixpkgs-unstable
 echo "NIX_PATH=${NIX_PATH}" >> $GITHUB_ENV
 
-## Emacs installation
-
+## Setup nix-env
 PATH="/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/per-user/$USER/profile/bin:$PATH"
+
+## cachix installation
+nix-env -iA cachix -f https://cachix.org/api/v1/install
+cat /etc/nix/nix.conf
+cachix use cachix
+
+## Emacs installation
 nix-env --quiet -j8 -iA cachix -f https://cachix.org/api/v1/install
 cachix use emacs-ci
 
