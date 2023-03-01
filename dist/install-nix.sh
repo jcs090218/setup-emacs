@@ -25,7 +25,7 @@ add_config() {
 # Set jobs to number of cores
 add_config "max-jobs = auto"
 # Allow binary caches for user
-add_config "trusted-users = root $USER"
+add_config "trusted-users = root ${USER:-}"
 
 # Nix installer flags
 installer_options=(
@@ -75,7 +75,8 @@ fi
 
 # Set paths
 echo "/nix/var/nix/profiles/default/bin" >> "$GITHUB_PATH"
-echo "/nix/var/nix/profiles/per-user/$USER/profile/bin" >> "$GITHUB_PATH"
+# new path for nix 2.14
+echo "$HOME/.nix-profile/bin" >> "$GITHUB_PATH"
 
 export NIX_PATH=nixpkgs=channel:nixpkgs-unstable
 echo "NIX_PATH=${NIX_PATH}" >> $GITHUB_ENV

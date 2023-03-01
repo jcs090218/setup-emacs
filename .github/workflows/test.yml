@@ -1,6 +1,7 @@
 name: 'CI'
 
 on:
+  pull_request:
   workflow_run:
     workflows: ["Build"]
     types:
