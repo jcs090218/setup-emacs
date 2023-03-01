@@ -34,7 +34,8 @@ jobs:
     - run: npm ci
     - run: npm run build
 
-    - uses: ./
+    - name: Setup Emacs
+      uses: ./
       with:
         version: ${{ matrix.emacs_version }}
 
