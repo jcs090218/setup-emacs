@@ -88,7 +88,7 @@ PATH="/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/per-user/$USER/pro
 nix-env -iA cachix -f https://cachix.org/api/v1/install
 PATH="/nix/store/*cachix*/bin/cachix:$PATH"
 
-nix profile install github:cachix/cachix/latest
+nix profile install github:cachix/cachix/latest --extra-experimental-features nix-command --extra-experimental-features flakes
 
 ## Emacs installation
 cachix use emacs-ci
