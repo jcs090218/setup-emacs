@@ -6670,7 +6670,8 @@ function run() {
                         break;
                     }
                     case "28.1":
-                    case "28.2": {
+                    case "28.2":
+                    case "29.1": {
                         zipPath += ".zip";
                         break;
                     }
