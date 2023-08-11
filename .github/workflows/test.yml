@@ -31,9 +31,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - run: npm ci
-    - run: npm run build
-
     - name: Setup Emacs
       uses: ./
       with:
