@@ -5,8 +5,7 @@
 # Set up Emacs
 > Github action which installs a given Emacs version
 
-[![Build Status](https://github.com/jcs090218/setup-emacs/workflows/CI/badge.svg)](https://github.com/jcs090218/setup-emacs/actions)
-[![Build](https://github.com/jcs090218/setup-emacs/actions/workflows/build.yml/badge.svg)](https://github.com/jcs090218/setup-emacs/actions/workflows/build.yml)
+[![CI](https://github.com/jcs090218/setup-emacs/actions/workflows/test.yml/badge.svg)](https://github.com/jcs090218/setup-emacs/actions/workflows/test.yml)
 [![dependencies Status](https://status.david-dm.org/gh/jcs090218/setup-emacs.svg)](https://david-dm.org/jcs090218/setup-emacs)
 
 This is a simple action that merges these two actions 🎉
