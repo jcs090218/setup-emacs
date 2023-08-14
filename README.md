@@ -29,7 +29,7 @@ You use to have to do this to install Emacs on `Unix` and `Windows`.
 
 ```yml
 steps:
-  - uses: actions/checkout@v2
+  - uses: actions/checkout@v3
 
   - uses: purcell/setup-emacs@master
     if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
@@ -46,7 +46,7 @@ Now you only need this,
 
 ```yml
 steps:
-  - uses: actions/checkout@v2
+  - uses: actions/checkout@v3
 
   - uses: jcs090218/setup-emacs@master
     with:
@@ -59,7 +59,7 @@ In `diff` view,
 
 ```diff
  steps:
-   - uses: actions/checkout@v2
+   - uses: actions/checkout@v3
 
 -  - uses: purcell/setup-emacs@master
 -    if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
