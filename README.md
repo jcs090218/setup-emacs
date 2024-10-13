@@ -3,7 +3,7 @@
 <a href="#"><img align="right" src="./etc/emacs-logo.png" width="15%"></a>
 
 # Set up Emacs
-> Github action which installs a given Emacs version
+> GitHub action which installs a given Emacs version
 
 [![CI](https://github.com/jcs090218/setup-emacs/actions/workflows/test.yml/badge.svg)](https://github.com/jcs090218/setup-emacs/actions/workflows/test.yml)
 [![dependencies Status](https://status.david-dm.org/gh/jcs090218/setup-emacs.svg)](https://david-dm.org/jcs090218/setup-emacs)
