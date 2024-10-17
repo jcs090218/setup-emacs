@@ -26,6 +26,28 @@ jobs:
             emacs_version: 24.1
           - os: macos-latest
             emacs_version: 24.2
+          - os: macos-latest
+            emacs_version: 24.3
+          - os: macos-latest
+            emacs_version: 24.4
+          - os: macos-latest
+            emacs_version: 24.5
+          - os: macos-latest
+            emacs_version: 25.1
+          - os: macos-latest
+            emacs_version: 25.2
+          - os: macos-latest
+            emacs_version: 25.3
+          - os: macos-latest
+            emacs_version: 26.1
+          - os: macos-latest
+            emacs_version: 26.2
+          - os: macos-latest
+            emacs_version: 26.3
+          - os: macos-latest
+            emacs_version: 27.1
+          - os: macos-latest
+            emacs_version: 27.2
 
     steps:
     - uses: actions/checkout@v4
