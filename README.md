@@ -29,15 +29,15 @@ You use to have to do this to install Emacs on `Unix` and `Windows`.
 
 ```yml
 steps:
-  - uses: actions/checkout@v3
+  - uses: actions/checkout@v4
 
   - uses: purcell/setup-emacs@master
-    if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
+    if: runner.os == 'Linux' || runner.os == 'macOS'
     with:
       version: ${{ matrix.emacs-version }}
 
   - uses: jcs090218/setup-emacs-windows@master
-    if: matrix.os == 'windows-latest'
+    if: runner.os == 'Windows'
     with:
       version: ${{ matrix.emacs-version }}
 ```
@@ -59,15 +59,15 @@ In `diff` view,
 
 ```diff
  steps:
-   - uses: actions/checkout@v3
+   - uses: actions/checkout@v4
 
 -  - uses: purcell/setup-emacs@master
--    if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
+-    if: runner.os == 'Linux' || runner.os == 'macOS'
 -    with:
 -      version: ${{ matrix.emacs-version }}
 
 -  - uses: jcs090218/setup-emacs-windows@master
--    if: matrix.os == 'windows-latest'
+-    if: runner.os == 'Windows'
 +  - uses: jcs090218/setup-emacs@master
      with:
        version: ${{ matrix.emacs-version }}
