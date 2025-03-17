@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Release Tag](https://img.shields.io/github/tag/jcs090218/setup-emacs.svg?label=release&logo=github)](https://github.com/jcs090218/setup-emacs/releases/latest)
+[![Release](https://img.shields.io/github/release/jcs090218/setup-emacs.svg?logo=github)](https://github.com/jcs090218/setup-emacs/releases/latest)
 <a href="#"><img align="right" src="./etc/emacs-logo.png" width="15%"></a>
 
 # Set up Emacs
